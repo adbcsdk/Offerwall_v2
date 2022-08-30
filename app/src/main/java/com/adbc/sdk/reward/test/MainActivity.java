@@ -1,11 +1,7 @@
 package com.adbc.sdk.reward.test;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 
-import android.Manifest;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -24,7 +20,6 @@ import java.util.zip.Checksum;
 public class MainActivity extends AppCompatActivity {
 
     private String appUserId = "someUser13";
-    private String[] permissions;
 
     private OfferwallBuilder builder;
 
@@ -43,13 +38,7 @@ public class MainActivity extends AppCompatActivity {
         initText = findViewById(R.id.text_init);
         initBtn = findViewById(R.id.btn_init);
 
-        permissions = new String[] { Manifest.permission.GET_ACCOUNTS };
-
-        if(!hasPermission(permissions[0])) {
-            getPermission();
-        } else {
-            initOfferwall();
-        }
+        initOfferwall();
 
         initBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,15 +73,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-        if(requestCode == 10 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            initOfferwall();
-        }
-    }
-
     private void initOfferwall() {
 
         /**
@@ -115,16 +95,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-    }
-
-    /** 권한 확인 */
-    private boolean hasPermission(String permission) {
-        return (ActivityCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED);
-    }
-
-    /** 권한 요청 */
-    private void getPermission() {
-        ActivityCompat.requestPermissions(this, permissions, 10);
     }
 
     /** 암호화 된 유저 ID 생성 예제 */
