@@ -1,14 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    compileSdkVersion 31
     defaultConfig {
         applicationId "com.adbc.sdk.reward.test"
         minSdkVersion 23
-        targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        targetSdkVersion 31
+        versionCode 5
+        versionName "1.4"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -36,5 +35,5 @@ dependencies {
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
 
-    implementation 'com.adbc.sdk.greenp.v2:greenp_v2:1.8@aar'
+    implementation 'com.adbc.sdk.greenp.v2:greenp_v2:2.1@aar'
 }
