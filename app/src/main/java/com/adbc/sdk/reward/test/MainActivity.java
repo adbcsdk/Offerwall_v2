@@ -2,7 +2,6 @@ package com.adbc.sdk.reward.test;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -18,7 +17,7 @@ import com.adbc.sdk.greenp.v2.OfferwallBuilder;
 import java.util.zip.CRC32;
 import java.util.zip.Checksum;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private String appUserId = "someUser13";
 
@@ -56,22 +55,34 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        (findViewById(R.id.btn)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        (findViewById(R.id.btn)).setOnClickListener(this);
+        (findViewById(R.id.btn2)).setOnClickListener(this);
+    }
 
-                if(builder != null) {
+    @Override
+    public void onClick(View view) {
 
-                    String title = titleText.getText().toString();
-                    if(TextUtils.isEmpty(title))
-                        title = "greenP Offerwall";
+        if(builder == null) {
+            return;
+        }
 
-                    builder.setTitle(title); // 오퍼월 화면 타이틀영역 제목 ( 미 입력 시 '무료 충전소' )
-                    builder.setReferrer(appUserId); // 광고 참여 시 포스트백으로 전달 될 리퍼러 ( 매체 개별 활용값 )
-                    builder.showOfferwall(MainActivity.this);
-                }
-            }
-        });
+        String title = titleText.getText().toString();
+        if(TextUtils.isEmpty(title))
+            title = "greenP Offerwall";
+
+        builder.setTitle(title); // 오퍼월 화면 타이틀영역 제목 ( 미 입력 시 '무료 충전소' )
+        builder.setReferrer(appUserId); // 광고 참여 시 포스트백으로 전달 될 리퍼러 ( 매체 개별 활용값 )
+
+        switch (view.getId()) {
+
+            case R.id.btn:
+                builder.showOfferwall(MainActivity.this);
+                break;
+
+            case R.id.btn2:
+                builder.showOfferwallWithoutNewsFeed(MainActivity.this);
+                break;
+        }
     }
 
     private void initOfferwall() {

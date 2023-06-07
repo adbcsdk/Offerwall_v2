@@ -41,21 +41,26 @@
 
 
 
-    <FrameLayout
+    <LinearLayout
         android:id="@+id/ad_wall_button_container"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="start|bottom"
         android:padding="10dp"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
-        <ImageButton
+        <Button
             android:id="@+id/btn"
-            android:src="@drawable/ad_button"
-            android:scaleType="fitXY"
-            android:layout_width="75dp"
-            android:layout_height="75dp"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="오퍼월 실행"/>
 
-    </FrameLayout>
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="오퍼월 실행(뉴스피드 없음)"/>
+
+    </LinearLayout>
 
 </FrameLayout>

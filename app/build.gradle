@@ -6,8 +6,8 @@ android {
         applicationId "com.adbc.sdk.reward.test"
         minSdkVersion 23
         targetSdkVersion 31
-        versionCode 5
-        versionName "1.4"
+        versionCode 6
+        versionName "1.5"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -35,5 +35,5 @@ dependencies {
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
 
-    implementation 'com.adbc.sdk.greenp.v2:greenp_v2:2.2@aar'
+    implementation 'com.adbc.sdk.greenp.v2:greenp_v2:2.7@aar'
 }
