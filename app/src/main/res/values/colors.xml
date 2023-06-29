@@ -3,4 +3,8 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <!-- 테마 색상의 변경을 원하시면 아래 주석을 해제하고 원하는 컬러코드로 변경해주세요 -->
+    <!--<color name="greenp_theme_color">#008577</color>-->
+
 </resources>
